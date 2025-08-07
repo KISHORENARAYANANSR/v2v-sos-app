@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>V2V Emergency App</title>
+  <link rel="manifest" href="manifest.json">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background-color: #f9f9f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 420px;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border: 1px solid #ddd;
+      background-color: #fff;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .top-section {
+      padding: 20px;
+    }
+
+    .header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .camera-placeholder {
+      width: 30px;
+      height: 30px;
+      background-color: #e0e0e0;
+      border-radius: 50%;
+    }
+
+    .add-user-btn {
+      width: 30px;
+      height: 30px;
+      font-size: 20px;
+      font-weight: bold;
+      background-color: #007bff;
+      color: white;
+      border-radius: 50%;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.2s ease-in-out;
+    }
+
+    .add-user-btn:hover {
+      background-color: #0056b3;
+    }
+
+    .emergency-text {
+      text-align: center;
+      font-size: 18px;
+      margin-top: 10px;
+      color: #333;
+    }
+
+    .sos-wrapper {
+      display: flex;
+      justify-content: center;
+      margin-top: 30px;
+    }
+
+    .sos-box {
+      width: 150px;
+      height: 150px;
+      background-color: black;
+      border-radius: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      transition: transform 0.2s ease-in-out;
+    }
+
+    .sos-box:hover {
+      transform: scale(1.05);
+    }
+
+    .number-text {
+      font-size: 32px;
+      color: white;
+      font-weight: bold;
+    }
+
+    .sos-text {
+      font-size: 28px;
+      color: #ff3b30;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    .dots {
+      text-align: center;
+      font-size: 24px;
+      margin-top: 10px;
+      color: #ccc;
+    }
+
+    .middle-section {
+      display: flex;
+      justify-content: space-around;
+      padding: 20px 10px;
+    }
+
+    .card-button {
+      width: 45%;
+      padding: 20px;
+      font-size: 16px;
+      background-color: white;
+      border-radius: 15px;
+      border: 1px solid #ddd;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      transition: background-color 0.2s ease-in-out;
+    }
+
+    .card-button:hover {
+      background-color: #f2f2f2;
+    }
+
+    .footer-nav {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      background-color: #00aeef;
+      padding: 10px;
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
+    }
+
+    .nav-icon {
+      font-size: 24px;
+      color: white;
+      cursor: pointer;
+      transition: transform 0.2s ease-in-out;
+    }
+
+    .nav-icon:hover {
+      transform: scale(1.2);
+    }
+
+    @media (min-width: 768px) {
+      .container {
+        transform: scale(1.1);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="top-section">
+      <div class="header-row">
+        <div class="camera-placeholder"></div>
+        <button class="add-user-btn" onclick="alert('Add user clicked')">+</button>
+      </div>
+      <div class="emergency-text">Emergency</div>
+      <div class="sos-wrapper">
+        <div class="sos-box" onclick="alert('SOS Alert Sent! Calling 112...')">
+          <div class="number-text">112</div>
+          <div class="sos-text">SOS</div>
+        </div>
+      </div>
+      <div class="dots">•••</div>
+    </div>
+
+    <div class="middle-section">
+      <button class="card-button" onclick="alert('Opening Device Info')">My device</button>
+      <button class="card-button" onclick="alert('Opening Violations')">Violations</button>
+    </div>
+
+    <div class="footer-nav">
+      <span class="nav-icon" onclick="alert('Map opened')">📍</span>
+      <span class="nav-icon" onclick="alert('Feed opened')">📰</span>
+      <span class="nav-icon" onclick="alert('Chat opened')">💬</span>
+      <span class="nav-icon" onclick="alert('Sound settings')">🔊</span>
+    </div>
+  </div>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('service-worker.js').then(function(registration) {
+          console.log('ServiceWorker registration successful:', registration.scope);
+        }, function(err) {
+          console.log('ServiceWorker registration failed:', err);
+        });
+      });
+    }
+  </script>
+</body>
+</html>
