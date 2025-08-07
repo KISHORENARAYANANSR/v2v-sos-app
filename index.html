@@ -5,7 +5,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>V2V Emergency App</title>
-  <link rel="manifest" href="manifest.json">
+
+  <!-- Manifest & Icons -->
+  <link rel="manifest" href="./manifest.json">
+  <link rel="apple-touch-icon" href="./icons/icon-192x192.png" />
+  <meta name="theme-color" content="#ffffff" />
+
   <style>
     * {
       box-sizing: border-box;
@@ -201,15 +206,17 @@
 
   <script>
     if ('serviceWorker' in navigator) {
-      window.addEventListener('load', function() {
-        navigator.serviceWorker.register('service-worker.js').then(function(registration) {
-          console.log('ServiceWorker registration successful:', registration.scope);
-        }, function(err) {
-          console.log('ServiceWorker registration failed:', err);
-        });
+      window.addEventListener('load', function () {
+        navigator.serviceWorker.register('./service-worker.js').then(
+          function (registration) {
+            console.log('ServiceWorker registration successful:', registration.scope);
+          },
+          function (err) {
+            console.log('ServiceWorker registration failed:', err);
+          }
+        );
       });
     }
   </script>
 </body>
 </html>
-
