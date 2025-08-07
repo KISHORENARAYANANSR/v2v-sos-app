@@ -5,36 +5,39 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>SOS Web App</title>
-  <link rel="stylesheet" href="style.css" />
 </head>
-<body>
+<body style="margin: 0; padding: 0; box-sizing: border-box; font-family: sans-serif; background: white; display: flex; flex-direction: column; height: 100vh; justify-content: space-between;">
 
-  <header>
-    <div class="top-bar">
-      <img src="https://img.icons8.com/ios-filled/50/user.png" alt="profile" class="icon profile">
-      <img src="https://img.icons8.com/ios-filled/50/plus-math.png" alt="add" class="icon add">
-    </div>
-  </header>
+  <!-- Top Bar -->
+  <div style="display: flex; justify-content: space-between; padding: 15px;">
+    <img src="https://img.icons8.com/ios-filled/50/user.png" alt="profile" style="width: 30px; height: 30px; border-radius: 50%; cursor: pointer;">
+    <img src="https://img.icons8.com/ios-filled/50/plus-math.png" alt="add" style="width: 30px; height: 30px; background-color: #00bfff; padding: 6px; border-radius: 50%; cursor: pointer;">
+  </div>
 
-  <main>
-    <div class="sos-box">
-      <div class="label">112</div>
-      <div class="sos-button">SOS</div>
+  <!-- Main Content -->
+  <div style="display: flex; flex-direction: column; align-items: center; gap: 20px;">
+
+    <!-- SOS Box -->
+    <div style="background-color: #1c1c1c; padding: 20px; border-radius: 10px; width: 160px; text-align: center;">
+      <div style="background-color: white; padding: 10px; font-size: 20px; font-weight: bold; border-radius: 5px 5px 0 0;">112</div>
+      <div style="background-color: red; padding: 15px; font-size: 22px; font-weight: bold; color: white; border-radius: 0 0 5px 5px; margin-top: 5px;">SOS</div>
     </div>
 
-    <div class="buttons">
-      <button class="gray-btn">Alert<br>records</button>
-      <button class="gray-btn">Violations</button>
+    <!-- Alert & Violations Buttons -->
+    <div style="display: flex; gap: 15px;">
+      <button style="background-color: #aaa; padding: 15px 20px; border: none; border-radius: 10px; color: white; font-weight: bold; font-size: 16px; text-align: center;">Alert<br>records</button>
+      <button style="background-color: #aaa; padding: 15px 20px; border: none; border-radius: 10px; color: white; font-weight: bold; font-size: 16px; text-align: center;">Violations</button>
     </div>
-  </main>
+  </div>
 
-  <footer>
-    <div class="bottom-nav">
-      <img src="https://img.icons8.com/ios-filled/50/car--v1.png" alt="car" />
-      <img src="https://img.icons8.com/ios-filled/50/home.png" alt="home" class="active" />
-      <img src="https://img.icons8.com/ios-filled/50/document.png" alt="docs" />
+  <!-- Bottom Nav Bar -->
+  <div style="background-color: #00bfff; padding: 10px 0;">
+    <div style="display: flex; justify-content: space-around; align-items: center;">
+      <img src="https://img.icons8.com/ios-filled/50/car--v1.png" alt="car" style="width: 30px; opacity: 0.8;">
+      <img src="https://img.icons8.com/ios-filled/50/home.png" alt="home" style="width: 30px; background-color: white; border-radius: 50%; padding: 6px; opacity: 1;">
+      <img src="https://img.icons8.com/ios-filled/50/document.png" alt="docs" style="width: 30px; opacity: 0.8;">
     </div>
-  </footer>
+  </div>
 
 </body>
 </html>
